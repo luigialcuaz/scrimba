@@ -1,4 +1,5 @@
 import React from "react"
+import reactLogo from '../images/react-logo-small.png'
 
 export default function Main() {
   return (
