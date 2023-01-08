@@ -13,3 +13,6 @@
 5. What does it mean for something to be "composable"?
   We have small pieces that we can put together to make something
   larger/greater than the individual pieces.
+
+1. What is a React component?
+  A function that returns React elements. (UI)
