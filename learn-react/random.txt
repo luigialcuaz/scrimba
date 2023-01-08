@@ -15,4 +15,4 @@
   larger/greater than the individual pieces.
 
 1. What is a React component?
-  A function that returns React elements. (UI)
+  cdA function that returns React elements. (UI)

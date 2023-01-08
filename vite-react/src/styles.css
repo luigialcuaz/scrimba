@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.nav-bar {
+  display: flex;
+}
+
+.react-logo {
+  width: 40px;
+}
+
