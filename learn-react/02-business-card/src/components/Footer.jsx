@@ -11,7 +11,7 @@ export default function Footer() {
       <a target='_blank' href="https://twitter.com/Loraei_"><img src={TwitterIcon}></img></a>
       <a target='_blank' href="https://www.facebook.com/"><img src={FacebookIcon}></img></a>
       <a target='_blank' href="https://www.instagram.com/"><img src={InstagramIcon}></img></a>
-      <a target='_blank' href="https://www.linkedin.com/feed/"><img src={LinkedinIcon}></img></a>
+      <a target='_blank' href="https://www.linkedin.com/"><img src={LinkedinIcon}></img></a>
       <a target='_blank' href="https://github.com/luigialcuaz"><img src={GithubIcon}></img></a>
     </footer>
   )
