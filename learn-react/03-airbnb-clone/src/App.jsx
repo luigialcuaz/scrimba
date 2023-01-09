@@ -8,7 +8,9 @@ export default function App() {
         <div className="container">
             <Navbar />
             <Hero />
-            <Card />
+            <div className="card--container">
+                <Card />
+            </div>
         </div>
     )
 }
