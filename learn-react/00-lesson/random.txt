@@ -41,3 +41,19 @@ function Navbar(props) {
 
 5. What data type is `props` when the component receives it?
 An object!
+
+CONDITIONAL RENDERING
+
+<div>
+    {props.setup && <h3>Setup: {props.setup}</h3>}
+    <p>Punchline: {props.punchline}</p>
+    <hr />
+</div>
+- If props.setup exists, render the right side of the equation
+
+<div>
+    <h3 style={{display: props.setup ? "block" : "none"}}>Setup: {props.setup}</h3>
+    <p>Punchline: {props.punchline}</p>
+    <hr />
+</div>
+-another way to do it
