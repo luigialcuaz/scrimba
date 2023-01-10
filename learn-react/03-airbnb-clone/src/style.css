@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 nav {
@@ -50,11 +50,17 @@ section {
 
 .card--container {
   display: flex;
+  flex-wrap: nowrap; /*added this and other 2 */
+  gap: 20px;
+  overflow-x: auto;
 }
 
 .card {
   width: 175px;
   font-size: 12px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .card--img_container {
@@ -90,4 +96,3 @@ section {
 .card--text {
   margin-block: 4px;
 }
-

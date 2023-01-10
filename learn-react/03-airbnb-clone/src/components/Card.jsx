@@ -3,13 +3,20 @@ import require from "vite-plugin-require";
 import StarImg from "../images/star.png";
 
 export default function Card(props) {
+  let badgeText;
+  if (props.openSpots === 0) {
+    badgeText = "SOLD OUT";
+  } else if (props.location === "Online") {
+    badgeText = "ONLINE";
+  }
+
   return (
     <section className="card">
       <div className="card--img_container">
         {/* <img className="card--img" src={images[props.img]} /> */}
         <img className="card--img" src={require(`../images/${props.img}`)} />
         {/* <img src={ require('./images/image1.jpg') } /> */}
-        <p className="card--img_text">`Spots: ${props.openSpots}`</p>
+        {badgeText && <p className="card--img_text">{badgeText}</p>}
       </div>
       <div className="card--stats">
         <img className="card--star" src={StarImg} />
