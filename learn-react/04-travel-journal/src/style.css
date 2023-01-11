@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #f55a5a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar--icon {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar--text {
+  font-family: Inter, sans-serif;
+  color: white;
+  margin-left: 10px;
+}
