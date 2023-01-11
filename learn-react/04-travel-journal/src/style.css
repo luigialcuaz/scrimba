@@ -2,15 +2,20 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
+.container {
+  font-family: Inter, sans-serif;
+}
+
 .navbar {
   background-color: #f55a5a;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .navbar--icon {
@@ -19,11 +24,67 @@
 }
 
 .navbar--text {
-  font-family: Inter, sans-serif;
   color: white;
   margin-left: 10px;
 }
 
-.travel--photo {
-  width: 100px;
+.travel--section {
+  display: flex;
+  padding-block: 20px;
+  border-bottom: 1px solid #f5f5f5;
+  margin-inline: 30px;
+}
+
+.travel--image {
+  width: 125px;
+  height: 168px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.travel--textSection {
+  padding-top: 15px;
+  padding-inline: 20px;
+}
+
+.travel--locationInfo {
+  display: flex;
+  align-items: center;
+}
+
+.travel--ping {
+  width: 7px;
+  height: 9.55px;
+}
+
+.travel--location {
+  font-weight: 400;
+  font-size: 10.24px;
+  margin-block: 0px;
+  margin-left: 3px;
+  letter-spacing: 1px;
+  color: #2b283a;
+}
+
+.travel--link {
+  color: #918e9b;
+  font-size: 10.24px;
+  margin-left: 10px;
+}
+
+.travel--title {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+.travel--date {
+  font-weight: 700;
+  font-size: 10.24px;
+  margin-bottom: 5px;
+}
+
+.travel--description {
+  font-size: 10.24px;
+  margin-top: 5px;
 }
