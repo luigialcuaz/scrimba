@@ -16,20 +16,38 @@
       <div class="panel">
         <h3 class="teamName">HOME</h3>
         <h1 id="home--score">0</h1>
-        <div class="button--panel">
-          <button id="increment--button" onclick="add('home', 1)">+1</button>
-          <button id="increment--button" onclick="add('home', 2)">+2</button>
-          <button id="increment--button" onclick="add('home', 3)">+3</button>
+        <div class="increment--panel">
+          <button class="increment--button" onclick="score('home', 1)">
+            +1
+          </button>
+          <button class="increment--button" onclick="score('home', 2)">
+            +2
+          </button>
+          <button class="increment--button" onclick="score('home', 3)">
+            +3
+          </button>
         </div>
+        <button class="game--button" onclick="score('reset-home')">
+          Reset
+        </button>
       </div>
       <div class="panel">
         <h3 class="teamName">GUEST</h3>
         <h1 id="guest--score">0</h1>
-        <div class="button--panel">
-          <button id="increment--button" onclick="add('guest', 1)">+1</button>
-          <button id="increment--button" onclick="add('guest', 2)">+2</button>
-          <button id="increment--button" onclick="add('guest', 3)">+3</button>
+        <div class="increment--panel">
+          <button class="increment--button" onclick="score('guest', 1)">
+            +1
+          </button>
+          <button class="increment--button" onclick="score('guest', 2)">
+            +2
+          </button>
+          <button class="increment--button" onclick="score('guest', 3)">
+            +3
+          </button>
         </div>
+        <button class="game--button" onclick="score('reset-guest')">
+          Reset
+        </button>
       </div>
     </div>
     <script src="index.js"></script>

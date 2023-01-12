@@ -37,14 +37,15 @@ body {
   border-radius: 4px;
 }
 
-.button--panel {
+.increment--panel {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
 
-#increment--button {
+.increment--button,
+.game--button {
   font-family: "Cursed Timer ULiL", sans-serif;
   color: #9aabd8;
   font-size: 18px;
@@ -53,4 +54,10 @@ body {
   background-color: #1b244a;
   padding: 6px;
   border-radius: 3px;
+}
+
+.game--button {
+  margin-top: 10px;
+  min-width: 55%;
+  width: 100%;
 }
