@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-.container {
+#container {
   display: flex;
   justify-content: space-around;
   background-color: #1b244a;
@@ -25,7 +25,8 @@ body {
   margin-block: 15px;
 }
 
-.score {
+#home--score,
+#guest--score {
   margin: 0;
   font-family: "Cursed Timer ULiL", sans-serif;
   font-weight: 400;
@@ -43,7 +44,7 @@ body {
   margin-top: 10px;
 }
 
-.increment--button {
+#increment--button {
   font-family: "Cursed Timer ULiL", sans-serif;
   color: #9aabd8;
   font-size: 18px;

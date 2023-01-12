@@ -12,23 +12,23 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="container">
+    <div id="container">
       <div class="panel">
         <h3 class="teamName">HOME</h3>
-        <h1 class="score">0</h1>
+        <h1 id="home--score">0</h1>
         <div class="button--panel">
-          <button class="increment--button">+1</button>
-          <button class="increment--button">+2</button>
-          <button class="increment--button">+3</button>
+          <button id="increment--button" onclick="add('home', 1)">+1</button>
+          <button id="increment--button" onclick="add('home', 2)">+2</button>
+          <button id="increment--button" onclick="add('home', 3)">+3</button>
         </div>
       </div>
       <div class="panel">
         <h3 class="teamName">GUEST</h3>
-        <h1 class="score">0</h1>
+        <h1 id="guest--score">0</h1>
         <div class="button--panel">
-          <button class="increment--button">+1</button>
-          <button class="increment--button">+2</button>
-          <button class="increment--button">+3</button>
+          <button id="increment--button" onclick="add('guest', 1)">+1</button>
+          <button id="increment--button" onclick="add('guest', 2)">+2</button>
+          <button id="increment--button" onclick="add('guest', 3)">+3</button>
         </div>
       </div>
     </div>
