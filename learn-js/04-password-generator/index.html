@@ -20,9 +20,17 @@
           Generate a <span class="turquoise">random password</span>
         </h1>
         <p class="description">Never use an insecure password again.</p>
-        <button id="generate-button" onclick="generatePasswords()">
-          Generate passwords
-        </button>
+        <section class="options">
+          <button id="generate-button" onclick="displayPasswords()">
+            Generate passwords
+          </button>
+          <div class="checkboxes">
+            <input type="checkbox" id="allow-symbols" name="allow-symbols" />
+            <label class="label" for="allow-symbols">Symbols</label>
+            <input type="checkbox" id="allow-numbers" name="allow-numbers" />
+            <label class="label" for="allow-numbers">Numbers</label>
+          </div>
+        </section>
       </main>
       <section id="password-section">
         <div id="password-one"></div>
