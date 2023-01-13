@@ -58,3 +58,7 @@ function resetPasswords() {
   firstDisplay.textContent = "";
   secondDisplay.textContent = "";
 }
+
+// what to do
+// create a light mode/night mode
+// length of password -> user input
