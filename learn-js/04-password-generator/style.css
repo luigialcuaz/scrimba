@@ -4,4 +4,57 @@
 
 body {
   margin: 0;
+  color: white;
+  background-color: #1f2937;
+  font-family: Inter, sans-serif;
+  size: 40px;
+}
+
+.container {
+  max-width: 375px;
+  padding: 40px;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.turquoise {
+  color: #4adf86;
+}
+
+.description {
+  margin-bottom: 50px;
+  font-size: 14px;
+  color: #d5d4d8;
+}
+
+#generate-button {
+  background-color: #10b981;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#password-section {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #2f3e53;
+  margin-block: 30px;
+  padding-top: 20px;
+}
+
+#password-one,
+#password-two {
+  background-color: #273549;
+  color: #55f991;
+  border-radius: 4px;
+  min-width: 130px;
+  height: 29px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

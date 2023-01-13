@@ -91,3 +91,24 @@ const characters = [
   "?",
   "/",
 ];
+
+function randomNumber() {
+  return Math.floor(Math.random() * characters.length);
+}
+
+let passwordOne = "";
+let passwordTwo = "";
+//generates a random 15 letter long password
+function generatePasswords() {
+  for (let i = 0; i < 15; i++) {
+    passwordOne += characters[randomNumber()];
+    passwordTwo += characters[randomNumber()];
+  }
+
+  let firstDisplay = document.getElementById("password-one");
+
+  let secondDisplay = document.getElementById("password-two");
+
+  firstDisplay.textContent = passwordOne;
+  secondDisplay.textContent = passwordTwo;
+}
