@@ -9,8 +9,8 @@ let passwordTwo = "";
 let wantSymbols = false;
 let wantNumbers = false;
 
-function randomNumber() {
-  return Math.floor(Math.random() * characters.length);
+function randomNumber(array) {
+  return Math.floor(Math.random() * array.length);
 }
 
 //generates a random 15 letter long password
@@ -28,12 +28,26 @@ function checkboxCheck() {
   wantNumbers = document.getElementById("allow-numbers").checked;
 }
 
-function modifyCharacters() {}
+function customizePassword() {
+  if (wantSymbols && wantNumbers) {
+    return characters;
+  } else if (wantSymbols) {
+    let newArray = characters.slice(0);
+    newArray.splice(52, 10);
+    return newArray;
+  } else if (wantNumbers) {
+    return characters.slice(0, 62);
+  } else {
+    return characters.slice(0, 52);
+  }
+}
 
 function generatePasswords() {
+  console.log(customizePassword());
+  const charactersArray = customizePassword();
   for (let i = 0; i < 15; i++) {
-    passwordOne += characters[randomNumber()];
-    passwordTwo += characters[randomNumber()];
+    passwordTwo += charactersArray[randomNumber(charactersArray)];
+    passwordOne += charactersArray[randomNumber(charactersArray)];
   }
 }
 
