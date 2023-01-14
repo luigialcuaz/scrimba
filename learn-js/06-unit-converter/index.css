@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  max-width: 550px;
+}
+
+main {
+  background-color: #6943ff;
+  color: white;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page--heading {
+  margin-top: 0px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+#number--input {
+  border: 1px solid white;
+  border-radius: 4px;
+  width: 100px;
+  max-width: 200px;
+  padding: 0px;
+  font-size: 58px;
+  background-color: #6943ff;
+  color: white;
+  margin-bottom: 20px;
+}
+
+#convert--button {
+  color: #3d3d3d;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  display: block;
+  padding: 10px 20px;
+}
