@@ -33,9 +33,16 @@ main {
   background-color: #6943ff;
   color: white;
   margin-bottom: 20px;
+  text-align: center;
 }
 
-#convert--button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#convert--btn {
   color: #3d3d3d;
   font-weight: 500;
   font-size: 16px;
@@ -43,4 +50,21 @@ main {
   border-radius: 4px;
   display: block;
   padding: 10px 20px;
+}
+
+.conversions--section {
+  padding: 15px 10px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.conversions--info {
+  padding: 24px 20px 15px 20px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.conversions--header {
+  color: #5a537b;
+  font-size: 20px;
 }
