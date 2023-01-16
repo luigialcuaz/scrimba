@@ -120,3 +120,5 @@ what the new value of state should be.
 3. When would you want to pass the second option (from answer
    above) to the state setter function?
 Whenever you DO need the previous value to determine the new value
+
+whenever state changes, the component where the state exists is re rendered and any child components that may rely on state to be working correctly
