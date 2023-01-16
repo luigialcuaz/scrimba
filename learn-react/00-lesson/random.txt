@@ -122,3 +122,13 @@ what the new value of state should be.
 Whenever you DO need the previous value to determine the new value
 
 whenever state changes, the component where the state exists is re rendered and any child components that may rely on state to be working correctly
+
+if you find yourself initializing state using incoming props, there is probably a better way to structure your code (derived state)
+
+conditonal rendering
+
+if(cond1 && console.log("Hello there")) {
+    // this code will run
+}
+
+if cond1 is true, the 2nd part runs, if its false, the computer skips whatever code is next
