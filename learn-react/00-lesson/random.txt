@@ -139,8 +139,75 @@ use onChange to listen to changes in the form
 - most important is the target property which gives the DOM object that triggered the event
 - event.target.value holds the text inputted by the user
 
+give form inputs a name property
+- match property value to the same name as the matching state
+- now have access to event.target.name
+- using that however produces a syntax error when updating state as a new object
+- use computed properties, surround key in square brackets.
+  - makes a dynamic string, something saved in a variable and use it as the property name of an object
 
 Textarea
 - self closing element
 - value is what is inside, the area
 - everything else is the same as a text based input, no type
+
+Controlled inputs
+- set value property to equal your state
+value={formData.email}
+- input otherwise will hold its own state 
+- value is no longer being controller by the input, but by react
+- an uncontrolled component otherwise. (react will complain)
+
+Checkbox
+- type="checkbox"
+- boolean type, uses checked as its value
+checked={formData.isFriendly}
+- has an id that connects the htmlFor property of a label
+<input 
+    type="checkbox" 
+    id="isFriendly" 
+    checked={formData.isFriendly}
+/>
+<label htmlFor="isFriendly">Are you friendly?</label>
+- htmlFor in js, for in html
+
+function handleChange(event) {
+    const {name, value, type, checked} = event.target
+    setFormData(prevFormData => {
+        return {
+            ...prevFormData,
+            [name]: type === "checkbox" ? checked : value
+        }
+    })
+}
+
+how to handle the checkbox even while handling everything else from the form
+
+Radio buttons
+- in react, a combination of checkboxes and inputs
+function handleChange(event) {
+    const {name, value, type, checked} = event.target
+    setFormData(prevFormData => {
+        return {
+            ...prevFormData,
+            [name]: type === "checkbox" ? checked : value
+        }
+    })
+}
+
+<input 
+    type="radio"
+    id="part-time"
+    name="employment"
+    value="part-time"
+    checked={formData.employment === "part-time"}
+    onChange={handleChange}
+/>
+<label htmlFor="part-time">Part-time</label>
+- has text value in state
+- when a button is checked, it will take the value stored in that radio button and set the state to that value
+- add a name value to each button
+  - the same name for each button since each respresent that one property ex: employment: unemployed/partime/fulltime
+  - assigning name also makes it so only button can be checked at a time
+- use the checked value to control the component.
+  - checked is a boolean value, employment is not so use equality operator with value to turn it into a boolean value
