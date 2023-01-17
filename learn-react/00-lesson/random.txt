@@ -132,3 +132,15 @@ if(cond1 && console.log("Hello there")) {
 }
 
 if cond1 is true, the 2nd part runs, if its false, the computer skips whatever code is next
+
+Forms 
+use onChange to listen to changes in the form
+- handle change receives an event object that has many properties
+- most important is the target property which gives the DOM object that triggered the event
+- event.target.value holds the text inputted by the user
+
+
+Textarea
+- self closing element
+- value is what is inside, the area
+- everything else is the same as a text based input, no type
