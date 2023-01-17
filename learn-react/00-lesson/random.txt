@@ -263,3 +263,5 @@ function handleSubmit(event) {
 
 -preventDefault wont refresh page and rerender app
 -will refresh and remove inputs otherwise, url will be updated with values inputted (/index.html?firstName=lui&lastName=alc etc. etc.
+
+EMAIL REQUIRES A @{a-z} TO BE SUBMITTED
