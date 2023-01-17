@@ -310,3 +310,37 @@ React.useEffect(function() {
 4. How would you explain what the "dependecies array" is?
 - Second paramter to the useEffect function
 - A way for React to know whether it should re-run the effect function
+
+useEffect Side effects
+
+React.useEffect(() => {
+    function watchWidth() {
+        console.log("Setting up...")
+        setWindowWidth(window.innerWidth)
+    }
+    
+    window.addEventListener("resize", watchWidth)
+    
+    return function() {
+        console.log("Cleaning up...")
+        window.removeEventListener("resize", watchWidth)
+    }
+}, [])
+
+- add a return function clean up side effects
+- when the component is unmounted from the DOM, the eventlistener set up on the window registered with the browser, is not automatically removed
+- this causes a memory leaked and needs a return function that removes the event listener.
+- this is called the useEffect cleanup
+
+async function in useEffect
+React.useEffect(() => {
+    async function getMemes() {
+        const res = await fetch("https://api.imgflip.com/get_memes")
+        const data = await res.json()
+        setAllMemes(data.data.memes)
+    }
+    getMemes()
+}, [])
+
+- automatically returns a promise instead of a function or nothing
+- therefore if you want to use async operations inside of useEffect, you need to define the function separately inside of the callback func as seen below.
