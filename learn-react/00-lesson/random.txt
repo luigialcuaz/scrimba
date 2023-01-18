@@ -344,3 +344,12 @@ React.useEffect(() => {
 
 - automatically returns a promise instead of a function or nothing
 - therefore if you want to use async operations inside of useEffect, you need to define the function separately inside of the callback func as seen below.
+
+Using local storage
+localStorage.getItem("key")
+localStorage.setItem("key", value)
+
+- value must be a string so if you have to save a more complex value, need to stringify the item
+
+JSON.stringify(value)
+JSON.(stringifiedValue)
