@@ -353,3 +353,22 @@ localStorage.setItem("key", value)
 
 JSON.stringify(value)
 JSON.(stringifiedValue)
+
+Lazy State Initialization
+
+const [notes, setNotes] = React.useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+)
+
+- theres a problem here
+- when react re renders every time state changes, its runs the code again
+- it ignores whatever state we are re-initializing but it still runs code again
+- if it was a console log, it would log every single key stroke if we are using that for state, so in this case it is going into local storage and extracting again and again but ignoring reinitialization of the state.
+
+- make it run only once through lazy state Initialization
+
+const [notes, setNotes] = React.useState(
+    JSON.parse(() => localStorage.getItem("notes")) || []
+)
+
+- put the code inside a function
