@@ -267,6 +267,12 @@ function handleSubmit(event) {
 EMAIL REQUIRES A @{a-z} TO BE SUBMITTED
 
 React.useEffect() 
+- what are reacts primary tasks?
+    - work with DOM/browser to render UI to the page
+    - manage state for us between render cycles (ie state values are remembered from one render to the next)
+    - keep the UI updated whenever state changes
+- what cant react handle on its own? -> outside effects!
+    - localStorage, api/database interactions, subscriptions(eg web sockets), syncing two different internal states together
 - has a mandatory parameter (function) and an optional parameter ([dependencies]), but will almost always include
 - the function acts a place for us to put our side effects code.
     - ex, fetch request is considered a side effect because it is reaching outside of reacts ecosystem but also trying to set some state in the process

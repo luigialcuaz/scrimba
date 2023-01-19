@@ -1,0 +1,21 @@
+const [currentNoteId, setCurrentNoteId] = React.useState(
+    (notes[0] && notes[0].id) || ""
+)
+
+- notes[0] is undefined when the app initializes and sayinn notes[0].id is undefined.id which will throw an error
+- the line makes sure notes[0] exists first
+
+const [notes, setNotes] = React.useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+
+- everytime the app renders, react will reach into localstorage when we've already initialized the app
+- we need to use lazy state Initialization to make it run only the first time
+
+const [notes, setNotes] = React.useState(
+    () => JSON.parse(localStorage.getItem("notes")) || []
+)
+
+- provide the function that returns the value
+    function {
+        return JSON.parse(localStorage.getItem("notes"))
+     }
