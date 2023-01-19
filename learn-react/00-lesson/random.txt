@@ -372,3 +372,10 @@ const [notes, setNotes] = React.useState(
 )
 
 - put the code inside a function
+
+EVENT handler
+
+- BY default whatever function we pass to an event handler will receive the event as its parameter
+- to pass something along with that, use .bind OR (event) => props.deleteNote(event, note.id)
+
+onClick={(event) => props.deleteNote(event, note.id)}
