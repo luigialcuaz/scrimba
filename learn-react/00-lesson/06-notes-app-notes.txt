@@ -19,3 +19,15 @@ const [notes, setNotes] = React.useState(
     function {
         return JSON.parse(localStorage.getItem("notes"))
      }
+
+function deleteNote(event, noteId) {
+    event.stopPropagation()
+    // Your code here
+}
+
+- there are two events happening, when clicking on the trash can to delete the note, react also thinks you are using the parent event which selects the note when you click in the area. after deleting this throws an error
+-this stops propagating the click event to the parents so only delete happens
+
+onClick={(event) => props.deleteNote(event, note.id)}
+
+- events pass the event as a param to functions automatically, to add more params, turn it into a func
