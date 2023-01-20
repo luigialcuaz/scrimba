@@ -16,9 +16,22 @@ main {
   border-radius: 8px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .dice--grid {
   display: grid;
+  width: 400px;
+  height: 200px;
   gap: 25px 25px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.die {
+  font-family: karla, sans-serif;
+  font-weight: 700;
+  font-size: 20.59px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
 }
