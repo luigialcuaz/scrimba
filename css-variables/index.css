@@ -32,3 +32,9 @@ button {
   background: var(--red);
   color: var(--yellow);
 }
+
+@media all and (max-width: 450px) {
+  .grid {
+    --columns: 200px;
+  }
+}
