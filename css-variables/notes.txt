@@ -20,3 +20,90 @@ body {
 }
 
 using requires var() with variable inside the parenthesis
+
+---Overriding variables
+
+.item {
+    --red: #ff8e69;
+    background: var(--yellow);
+}
+
+global variables in the root are passed onto its children. we can override those variables by assigning the same variable a different value. the new value is then passed onto its child elements but the app will use the same value assigned by the root outside of the parent element where the global variable was overridden
+
+---Local Variables 
+
+.item {
+  --item-yellow: #fffc5c;
+  background: var(--item-yellow);
+}
+
+depending on preference, we can also separate the declaration and reference
+
+.item {
+  --item-yellow: #fffc5c;
+}
+
+.item {
+  background: var(--item-yellow);
+}
+
+like this
+
+---Theming
+
+<div class="item">
+    <h1>project a</h1>
+    <button>learn more</button>
+</div>
+
+by changing the div class to "item featured" and adding to the css file
+
+.featured {
+     --yellow: #ffe55b;
+     --red: #ff5564;   
+}
+
+---Changing variables with js
+
+css variables live in the DOM, this allows them to be updated through js
+
+// returns the first element that matches the specified selector, null otherwise
+// returned
+var root = document.querySelector(":root"); 
+// or window.getComputedStyle(), returns an obj containing the values of all css
+// properties of an element
+var rootStyles = getComputedStyle(root);
+// returns a string containing the value of a specified CSS property.
+var red = rootStyles.getPropertyValue("--red");
+// returns red: ," #ff6f69"
+console.log('red: ', red);
+
+// sets a new value for a property on a CSS style declaration object.
+root.style.setProperty("--red", "green");
+
+---Responsiveness
+
+.grid {
+    --columns: 200px 200px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: var(--columns);
+    grid-auto-rows: 140px;
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+@media all and (max-width: 450px) {
+    .grid {
+       --columns: 200px;   
+    }
+}
+
+---Inheritance
+
+--main-color: var(--red)
+
+only sets it to the value of --red not the variable
+if the --red is changed down the line, --main-color will still point to the previous red unless --main-color: is reassigned

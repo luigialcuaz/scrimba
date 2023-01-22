@@ -23,7 +23,18 @@ p {
   background: var(--yellow);
 }
 
+.featured {
+  --yellow: #ffe55b;
+  --red: #ff5564;
+}
+
 button {
   background: var(--red);
   color: var(--yellow);
+}
+
+@media all and (max-width: 450px) {
+  .grid {
+    --columns: 200px;
+  }
 }
