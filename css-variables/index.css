@@ -23,6 +23,11 @@ p {
   background: var(--yellow);
 }
 
+.featured {
+  --yellow: #ffe55b;
+  --red: #ff5564;
+}
+
 button {
   background: var(--red);
   color: var(--yellow);
