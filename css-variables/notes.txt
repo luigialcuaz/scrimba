@@ -1,0 +1,22 @@
+css-variables 
+
+Whenever you css values are being reused, it is a perfect time to start using css-variables
+
+decide which scope we want our variable to live in
+
+:root {
+  --red: #ff6f69;
+  --beige: #ffeead;
+  --yellow: #ffcc5c;
+}
+
+a pseudo class that points to the root element of our document (the html element itself in many cases)
+declaring it here will make them global variables, available through the entire app
+
+html,
+body {
+  background: var(--beige);
+  color: var(--red);
+}
+
+using requires var() with variable inside the parenthesis
