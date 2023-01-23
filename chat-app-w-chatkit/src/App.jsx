@@ -5,4 +5,13 @@ import SendMessageForm from "./components/SendMessageForm";
 import NewRoomForm from "./components/NewRoomForm";
 import RoomList from "./components/RoomList";
 
-export default function App() {}
+export default function App() {
+  return (
+    <div className="app">
+      <RoomList />
+      <MessageList />
+      <SendMessageForm />
+      <NewRoomForm />
+    </div>
+  );
+}
