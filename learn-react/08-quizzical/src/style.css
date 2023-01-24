@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-btn-blue: #4d5b9e;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: inter, karla, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+#start-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+  font-family: karla, inter, sans-serif;
+  font-size: 42px;
+  color: var(--blue);
+}
+
+#start-button {
+  font-family: inherit;
+  font-size: 18px;
+  padding: 14px 90px;
+  background-color: var(--color-btn-blue);
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
