@@ -13,40 +13,23 @@ export default function Quiz(props) {
       .then((res) => res.json())
       .then((data) =>
         setQuiz(
-          data.results.map((item) => ({
-            // atob(...item)?
-            // category: atob(item.category),
-            // type: atob(item.type),
-            // difficulty: atob(item.difficulty),
-            question: atob(item.question),
-            correct_answer: atob(item.correct_answer),
-            incorrect_answers: [
-              atob(item.incorrect_answers[0]),
-              atob(item.incorrect_answers[1]),
-              atob(item.incorrect_answers[2]),
-            ],
-          }))
+          data.results.map((item) => {
+            return {
+              question: atob(item.question),
+              correct_answer: atob(item.correct_answer),
+              incorrect_answers: [
+                atob(item.incorrect_answers[0]),
+                atob(item.incorrect_answers[1]),
+                atob(item.incorrect_answers[2]),
+              ],
+            };
+          })
         )
       );
   }, []);
 
-  function shuffle(arr) {
-    let currentIndex = arr.length,
-      randomIndex;
-    while (currentIndex != 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      [arr[currentIndex], arr[randomIndex]] = [
-        arr[randomIndex],
-        arr[currentIndex],
-      ];
-    }
-
-    return arr;
-  }
-
   const questionBlockElements = quiz.map((item) => {
+    console.log("test");
     let answersArray = item.incorrect_answers.map((answer) => ({
       answer,
       correct: false,
@@ -61,7 +44,7 @@ export default function Quiz(props) {
       <QuestionBlock
         key={item.question}
         question={item.question}
-        answers={shuffle(answersArray)}
+        answers={answersArray}
       />
     );
   });
@@ -70,7 +53,15 @@ export default function Quiz(props) {
     <main>
       {questionBlockElements}
       <div className="check-answers-div">
-        <button className="quiz-btn">Check Answers</button>
+        {!props.quizComplete ? (
+          <button className="quiz-btn" onClick={props.checkAnswers}>
+            Check Answers
+          </button>
+        ) : (
+          <button className="quiz-btn" onClick={props.playAgain}>
+            Play again
+          </button>
+        )}
       </div>
     </main>
   );

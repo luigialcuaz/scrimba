@@ -5,11 +5,28 @@ import Answer from "./Answer";
 export default function Question(props) {
   const [isSelected, setIsSelected] = useState("");
 
+  function shuffle(arr) {
+    let currentIndex = arr.length,
+      randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [arr[currentIndex], arr[randomIndex]] = [
+        arr[randomIndex],
+        arr[currentIndex],
+      ];
+    }
+
+    return arr;
+  }
+
   function handleClick(event, id) {
     setIsSelected(id);
   }
 
-  const answerElements = props.answers.map((item) => (
+  const shuffledAnswers = shuffle(props.answers);
+  const answerElements = shuffledAnswers.map((item) => (
     <Answer
       key={item.answer}
       id={item.answer}
