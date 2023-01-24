@@ -5,7 +5,7 @@ export default function Start(props) {
     <div id="start-page">
       <h1 id="title">Quizzical</h1>
       <p>Blah blah description</p>
-      <button id="start-button" onClick={props.handleClick}>
+      <button className="quiz-btn" onClick={props.handleClick}>
         Start Quiz
       </button>
     </div>
