@@ -1,10 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import QuestionBlock from "./QuestionBlock";
 
-//quiz returns an array of 5 objects
-//{category: "", type: "", difficulty: "", question: "", correct_answer: "", incorrect_answers: ['', '', '']}
 export default function Quiz(props) {
-  const qbElements = props.quiz.map((item) => {
+  const [quiz, setQuiz] = useState([]);
+
+  //quiz returns an array of 5 objects
+  //{category: "", type: "", difficulty: "", question: "", correct_answer: "", incorrect_answers: ['', '', '']}
+  React.useEffect(() => {
+    fetch(
+      "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple&encode=base64"
+    )
+      .then((res) => res.json())
+      .then((data) =>
+        setQuiz(
+          data.results.map((item) => ({
+            // atob(...item)?
+            // category: atob(item.category),
+            // type: atob(item.type),
+            // difficulty: atob(item.difficulty),
+            question: atob(item.question),
+            correct_answer: atob(item.correct_answer),
+            incorrect_answers: [
+              atob(item.incorrect_answers[0]),
+              atob(item.incorrect_answers[1]),
+              atob(item.incorrect_answers[2]),
+            ],
+          }))
+        )
+      );
+  }, []);
+
+  function shuffle(arr) {
+    let currentIndex = arr.length,
+      randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [arr[currentIndex], arr[randomIndex]] = [
+        arr[randomIndex],
+        arr[currentIndex],
+      ];
+    }
+
+    return arr;
+  }
+
+  const questionBlockElements = quiz.map((item) => {
     let answersArray = item.incorrect_answers.map((answer) => ({
       answer,
       correct: false,
@@ -19,14 +61,14 @@ export default function Quiz(props) {
       <QuestionBlock
         key={item.question}
         question={item.question}
-        answers={answersArray}
+        answers={shuffle(answersArray)}
       />
     );
   });
 
   return (
     <main>
-      {qbElements}
+      {questionBlockElements}
       <div className="check-answers-div">
         <button className="quiz-btn">Check Answers</button>
       </div>

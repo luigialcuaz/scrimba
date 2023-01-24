@@ -1,37 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Answer from "./Answer";
-//quiz returns an array of 5 objects
-//{category: "", type: "", difficulty: "", question: "", correct_answer: "", incorrect_answers: ['', '', '']}
+
+//props: key={item.question} question={item.question} answers={answersArray}
 export default function Question(props) {
-  const [selected, setSelected] = React.useState(false);
+  const [isSelected, setIsSelected] = useState("");
 
-  function shuffle(arr) {
-    let currentIndex = arr.length,
-      randomIndex;
-    while (currentIndex != 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      [arr[currentIndex], arr[randomIndex]] = [
-        arr[randomIndex],
-        arr[currentIndex],
-      ];
-    }
-
-    return arr;
+  function handleClick(event, id) {
+    setIsSelected(id);
   }
 
-  function handleClick(event, answer) {
-    // setSelected
-  }
-
-  const answerElements = shuffle(props.answers).map((answer) => (
+  const answerElements = props.answers.map((item) => (
     <Answer
-      selected={selected}
-      key={answer.answer}
-      handleClick={(event) => handleClick(event, answer.correct)}
-      answer={answer.answer}
-      correct={answer.correct}
+      key={item.answer}
+      id={item.answer}
+      isSelected={isSelected}
+      handleClick={(event) => handleClick(event, item.answer)}
+      answer={item.answer}
+      correct={item.correct}
     />
   ));
 
