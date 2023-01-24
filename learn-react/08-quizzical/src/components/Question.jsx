@@ -2,6 +2,8 @@ import React from "react";
 import Answer from "./Answer";
 // {category: "", type: "", difficulty: "", question: "", correct_answer: ""}
 export default function Question(props) {
+  console.log(props.question.question);
+
   return (
     <section className="question-block">
       <h2>{props.question.question}</h2>

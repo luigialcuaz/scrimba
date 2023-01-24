@@ -3,8 +3,6 @@ import Question from "./Question";
 
 // {category: "", type: "", difficulty: "", question: "", correct_answer: ""}
 export default function Quiz(props) {
-  // console.log(typeof props.quiz);
-  // console.log(props.quiz[0]);
   return (
     <main>
       <Question question={props.quiz[0]} />
