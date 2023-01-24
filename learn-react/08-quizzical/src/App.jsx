@@ -3,7 +3,7 @@ import Start from "./components/Start";
 import Quiz from "./components/Quiz";
 
 export default function App() {
-  const [start, setStart] = React.useState("false");
+  const [startQuiz, setStartQuiz] = React.useState(false);
   const [quiz, setQuiz] = React.useState([]);
 
   //quiz returns an array of 5 objects
@@ -32,13 +32,12 @@ export default function App() {
   }, []);
 
   function handleClick() {
-    setStart((prevState) => !prevState);
+    setStartQuiz((prevState) => !prevState);
   }
 
   return (
     <div className="container">
-      {start && <Start handleClick={handleClick} />}
-      {!start && <Quiz quiz={quiz} />}
+      {!startQuiz ? <Start handleClick={handleClick} /> : <Quiz quiz={quiz} />}
     </div>
   );
 }
