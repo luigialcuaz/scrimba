@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import shuffleAnswers from "../../util/shuffleAnswers";
+import decodeAnswers from "../../util/decodeAnswers";
 import QuestionBlock from "./QuestionBlock";
 
 export default function Quiz(props) {
@@ -16,12 +18,10 @@ export default function Quiz(props) {
           data.results.map((item) => {
             return {
               question: atob(item.question),
-              correct_answer: atob(item.correct_answer),
-              incorrect_answers: [
-                atob(item.incorrect_answers[0]),
-                atob(item.incorrect_answers[1]),
-                atob(item.incorrect_answers[2]),
-              ],
+              answers: shuffleAnswers(
+                decodeAnswers(item.incorrect_answers),
+                atob(item.correct_answer)
+              ),
             };
           })
         )
@@ -29,25 +29,21 @@ export default function Quiz(props) {
   }, []);
 
   const questionBlockElements = quiz.map((item) => {
-    console.log("test");
-    let answersArray = item.incorrect_answers.map((answer) => ({
-      answer,
-      correct: false,
-    }));
-
-    answersArray.push({
-      answer: item.correct_answer,
-      correct: true,
-    });
-
     return (
       <QuestionBlock
         key={item.question}
         question={item.question}
-        answers={answersArray}
+        answers={item.answers}
+        quizComplete={props.quizComplete}
       />
     );
   });
+
+  const playAgainElements = (
+    <button className="quiz-btn" onClick={props.playAgain}>
+      Play again
+    </button>
+  );
 
   return (
     <main>
@@ -58,9 +54,7 @@ export default function Quiz(props) {
             Check Answers
           </button>
         ) : (
-          <button className="quiz-btn" onClick={props.playAgain}>
-            Play again
-          </button>
+          playAgainElements
         )}
       </div>
     </main>
