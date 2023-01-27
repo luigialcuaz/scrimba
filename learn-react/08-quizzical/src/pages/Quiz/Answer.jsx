@@ -21,9 +21,7 @@ export default function Answer(props) {
     <div>
       <div
         className={
-          !selected && !props.quizComplete
-            ? "answer neutral"
-            : "answer selected"
+          !selected && !props.quizIsOver ? "answer neutral" : "answer selected"
         }
         onClick={props.handleClick}
       >

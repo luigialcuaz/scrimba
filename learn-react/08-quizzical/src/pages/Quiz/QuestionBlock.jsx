@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Answer from "./Answer";
-import shuffle from "../../util/shuffleAnswers";
+import { nanoid } from "nanoid";
 
 //props: key={item.question} question={item.question} answers={answersArray}
 export default function Question(props) {
@@ -10,17 +10,20 @@ export default function Question(props) {
     setIsSelected(id);
   }
 
-  const answerElements = props.answers.map((item) => (
-    <Answer
-      key={item.answer}
-      id={item.answer}
-      isSelected={isSelected}
-      handleClick={(event) => handleClick(event, item.answer)}
-      answer={item.answer}
-      correct={item.correct}
-      quizComplete={props.quizComplete}
-    />
-  ));
+  const answerElements = props.answers.map((item) => {
+    const id = nanoid();
+    return (
+      <Answer
+        key={id}
+        id={id}
+        isSelected={isSelected}
+        handleClick={(event) => handleClick(event, id)}
+        answer={item.answer}
+        correct={item.correct}
+        quizIsOver={props.quizIsOver}
+      />
+    );
+  });
 
   return (
     <section className="question-block">

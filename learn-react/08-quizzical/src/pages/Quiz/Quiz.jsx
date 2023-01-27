@@ -1,40 +1,15 @@
-import React, { useState } from "react";
-import shuffleAnswers from "../../util/shuffleAnswers";
-import decodeAnswers from "../../util/decodeAnswers";
+import React from "react";
 import QuestionBlock from "./QuestionBlock";
+import { nanoid } from "nanoid";
 
 export default function Quiz(props) {
-  const [quiz, setQuiz] = useState([]);
-
-  //quiz returns an array of 5 objects
-  //{category: "", type: "", difficulty: "", question: "", correct_answer: "", incorrect_answers: ['', '', '']}
-  React.useEffect(() => {
-    fetch(
-      "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple&encode=base64"
-    )
-      .then((res) => res.json())
-      .then((data) =>
-        setQuiz(
-          data.results.map((item) => {
-            return {
-              question: atob(item.question),
-              answers: shuffleAnswers(
-                decodeAnswers(item.incorrect_answers),
-                atob(item.correct_answer)
-              ),
-            };
-          })
-        )
-      );
-  }, []);
-
-  const questionBlockElements = quiz.map((item) => {
+  const questionBlockElements = props.quizData.map((item) => {
     return (
       <QuestionBlock
-        key={item.question}
+        key={nanoid()}
         question={item.question}
         answers={item.answers}
-        quizComplete={props.quizComplete}
+        quizIsOver={props.quiz.isOver}
       />
     );
   });
@@ -49,7 +24,7 @@ export default function Quiz(props) {
     <main>
       {questionBlockElements}
       <div className="check-answers-div">
-        {!props.quizComplete ? (
+        {!props.quiz.isOver ? (
           <button className="quiz-btn" onClick={props.checkAnswers}>
             Check Answers
           </button>
